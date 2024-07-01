@@ -1,6 +1,6 @@
 # EXPERIMENTO ATLAS - Reconstrução de sinal - Método de Desconvolução de Sinal - Estimação da amplitude.
 # Autor: Guilherme Barroso Morett.
-# Data: 28 de junho de 2024.
+# Data: 30 de junho de 2024.
 
 # Objetivo do código: implementação da validação cruzada para o método de Desconvolução de Sinal.
 
@@ -9,7 +9,7 @@ Organização do código:
 
 Importação de arquivos.
 Leitura dos dados de ocupação: leitura_dados_ocupacao_desconvolucao.py
-Método da Desconvolução: metodo_desconvolucao_P_igual_N.py
+Método de Desconvolução: metodo_desconvolucao_P_igual_N.py
 
 Funções presentes:
 
@@ -48,10 +48,9 @@ titulo_programa = colored("Geração de arquivos de saída pela técnica de vali
 # Impressão do título do programa.
 print(titulo_programa)
 
-
 ### ----------------------------------------- 1) INSTRUÇÃO PARA SALVAR OS DADOS ESTATÍSTICOS DO K-FOLD ----------------------------------------- ###
 
-# Definição da função para salvar as médias dos dados estatísticos dos blocos em um arquivo de saída.
+# Definição da instrução para salvar as médias dos dados estatísticos dos blocos em um arquivo de saída.
 def arquivo_saida_dados_estatisticos_k_fold_erro(n_ocupacao, n_janelamento, media_dado_erro, var_dado_erro, DP_dado_erro, dado):
 
     # Definição do título presente no arquivo de saída.
@@ -168,7 +167,7 @@ def K_fold(Matriz_Pulsos_Sinais, vetor_parametro_referencia, n_ocupacao, n_janel
 
 ### ----------------------------------------- 3) INSTRUÇÃO PARA APLICAR O K-FOLD EM TODAS AS OCUPAÇÕES ----------------------------------------- ###
   
-# Definição da função principal (main) do código.
+# Definição da instrução principal (main) do código.
 def principal_K_fold():
     
     # A variável ocupacao_inicial armazena o valor inicial da ocupação que é 0.
@@ -207,7 +206,7 @@ def principal_K_fold():
     
             K_fold(Matriz_Dados_Pulsos, vetor_parametro_referencia, numero_ocupacao, n_janelamento)
      
-# Chamada da função principal do código.
+# Chamada da instrução principal do código.
 principal_K_fold()
        
 ### -------------------------------------------------------------------------------------------------------------------------------------------- ###

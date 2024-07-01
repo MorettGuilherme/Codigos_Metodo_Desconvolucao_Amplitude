@@ -1,6 +1,6 @@
 # EXPERIMENTO ATLAS - Reconstrução de sinal - Método de Desconvolução de Sinal - Estimação da amplitude.
 # Autor: Guilherme Barroso Morett.
-# Data: 28 de junho de 2024.
+# Data: 30 de junho de 2024.
 
 # Objetivo do código: análise do erro absoluto do parâmetro da amplitude pelo método de Desconvolução de Sinal - P = N.
 
@@ -102,7 +102,7 @@ def histograma_erro_amplitude(n_ocupacao, lista_erro_amplitude, media_erro_ampli
     bbox=dict(facecolor='white', alpha=0.5),
     fontsize = 14)
     
-    plt.title(f"Ocupação (OC.) = {n_ocupacao}", fontsize=18)
+    #plt.title(f"Ocupação (OC.) = {n_ocupacao}", fontsize=18)
 
     # Criação de grid.
     plt.grid()
@@ -166,7 +166,7 @@ def principal_histograma_erro_amplitude_desconvolucao():
     
     histograma_erro_amplitude(n_ocupacao, lista_erro_amplitude, media_erro_amplitude, var_erro_amplitude, desvio_padrao_erro_amplitude)
     
-# Chamada da função principal do código.
+# Chamada da instrução principal do código.
 principal_histograma_erro_amplitude_desconvolucao()
 
 ### -------------------------------------------------------------------------------------------------------------------------------------------- ###

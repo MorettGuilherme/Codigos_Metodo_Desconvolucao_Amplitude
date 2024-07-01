@@ -1,6 +1,6 @@
 # EXPERIMENTO ATLAS - Reconstrução de sinal - Método de Desconvolução de Sinal - Estimação da amplitude.
 # Autor: Guilherme Barroso Morett.
-# Data: 28 de junho de 2024.
+# Data: 30 de junho de 2024.
 
 # Objetivo do código: cálculo do desempenho do método de Desconvolução de Sinal para a estimação da amplitude pela validação cruzada K-Fold.
 
@@ -197,7 +197,7 @@ def DP(numero_elementos_bloco, bloco_erro_estimacao):
 
 ## --------------------------------------------------------------------------------------------------------------------------------------------- ###
 
-### ----------- 7) INSTRUÇÃO PARA A VALIDAÇÃO CRUZADA K-FOLD ADAPTADA PARA O CÁLCULO DO DESEMPENHO DO MÉTODO DE DESCONVOLUÇÃO DE SINAL -------- ###
+### ----------- 7) INSTRUÇÃO PARA A VALIDAÇÃO CRUZADA K-FOLD ADAPTADA PARA O CÁLCULO DO DESEMPENHO DO MÉTODO DE DESCONVOLUÇÃO DE SINAL --------- ###
 
 # Definição da instrução da técnica de validação cruzada K-Fold para o cálculo do desempenho do método de Desconvolução de Sinal.
 def K_fold_desempenho_desconvolucao(n_ocupacao, n_janelamento_ideal, opcao_avaliacao_desempenho, Matriz_Pulsos_Sinais, vetor_amplitude_referencia):
@@ -263,7 +263,7 @@ def K_fold_desempenho_desconvolucao(n_ocupacao, n_janelamento_ideal, opcao_avali
     # Definição da lista vazia lista_blocos_valores_desempenho.
     lista_blocos_valores_desempenho = []
      
-    # Para indice_bloco de zero até o tamanho da matriz de dados de entrada com incremento igual a quantidade de elementos no bloco.
+    # Para indice_teste de zero até o tamanho da matriz de dados de entrada com incremento igual a quantidade de elementos no bloco.
     for indice_teste in range(0, len(blocos_pulsos_sinais)):
         
         # Definição do bloco_teste_pulsos_sinais como sendo aquele de índice igual ao indice_teste.
@@ -327,7 +327,6 @@ def K_fold_desempenho_desconvolucao(n_ocupacao, n_janelamento_ideal, opcao_avali
            # O valor de bloco_valor_DP é acrescentado a lista lista_blocos_valores_desempenho.
            lista_blocos_valores_desempenho.append(bloco_valor_DP)
             
-
     # Cálculo dos dados estatísticos do desempenho.
     media_desempenho = np.mean(lista_blocos_valores_desempenho)
     var_desempenho = np.var(lista_blocos_valores_desempenho)
@@ -340,7 +339,7 @@ def K_fold_desempenho_desconvolucao(n_ocupacao, n_janelamento_ideal, opcao_avali
 
 ### ---------------------------------------------- 8) INSTRUÇÃO PRINCIPAL DO CÓDIGO (MAIN) ----------------------------------------------------- ###
   
-# Definição da função principal (main) do código.
+# Definição da instrução principal (main) do código.
 def principal_desempenho_desconvolucao():
     
     # Impressão de mensagem solicitando ao usuário digitar a opção desejada para a análise do desempenho.
@@ -400,7 +399,7 @@ def principal_desempenho_desconvolucao():
     # Impressão do tempo de execução.
     print(f"Tempo de execução: {tempo_execucao}")
      
-# Chamada da função principal_desempenho_desconvolucao.
+# Chamada da instrução principal do código.
 principal_desempenho_desconvolucao()       
 ### -------------------------------------------------------------------------------------------------------------------------------------------- ###
 

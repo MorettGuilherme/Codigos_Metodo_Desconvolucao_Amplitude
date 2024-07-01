@@ -1,6 +1,6 @@
 # EXPERIMENTO ATLAS - Reconstrução de sinal - Método de Desconvolução de Sinal - Estimação da amplitude.
 # Autor: Guilherme Barroso Morett.
-# Data: 28 de junho de 2024.
+# Data: 30 de junho de 2024.
 
 # Objetivo do código: geração de arquivos de saída baseados nos dados estatísticos dos histogramas do erro de estimação pelo método de Desconvolução de Sinal.
 
@@ -26,6 +26,7 @@ Saída: nada.
 Entrada: nada.
 Saída: nada.
 """
+
 # Importação das bibliotecas.
 import numpy as np
 import matplotlib.pyplot as plt
@@ -122,7 +123,7 @@ def arquivo_saida_dados_estatisticos_erro_amplitude(n_ocupacao, n_janelamento, m
 
 ### -------------------------------------- 3) INSTRUÇÃO PRINCIPAL DO CÓDIGO (MAIN) ------------------------------------------------------------- ###
 
-# Definição da função principal (main) para esse código.
+# Definição da instrução principal (main) para esse código.
 def principal_arquivo_saida_dados_estatisticos_desconvolucao():
     
     # A variável ocupacao_inicial armazena o valor inicial da ocupação que é 0.
@@ -167,7 +168,7 @@ def principal_arquivo_saida_dados_estatisticos_desconvolucao():
             
 ### -------------------------------------------------------------------------------------------------------------------------------------------- ###
 
-# Chamada da função principal do código.
+# Chamada da instrução principal do código.
 principal_arquivo_saida_dados_estatisticos_desconvolucao()
 
 # Impressão de uma linha que representa o fim do programa.

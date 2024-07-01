@@ -1,10 +1,11 @@
 # EXPERIMENTO ATLAS - Reconstrução de sinal - Método de Desconvolução de Sinal - Estimação da amplitude.
 # Autor: Guilherme Barroso Morett.
-# Data: 28 de junho de 2024.
+# Data: 30 de junho de 2024.
 
 # Objetivo do código: aplicação do método de Desconvolução de Sinal - P = N.
 
-""" Organização do Código:
+""" 
+Organização do Código:
 
 Funções presentes:
 
@@ -13,9 +14,8 @@ Entrada: número de janelamento.
 Saída: matriz H.
 
 2) Instrução para o método de Desconvolução para o caso N = P.
-Entrada: Matriz com os pulsos de sinais e o vetor da amplitude de referência.
+Entrada: matriz com os pulsos de sinais e o vetor da amplitude de referência.
 Saída: nada.
-
 """
 
 # Importação das bibliotecas.
@@ -48,7 +48,7 @@ def matriz_H(n_janelamento):
         H7 = [0, 0, 0, g1, g2, g3, g4]
         
         # Construção da matriz H a partir dessas linhas.
-        H = list(zip(H1, H2, H3, H4, H5, H6, H7))
+        H = np.array([H1, H2, H3, H4, H5, H6, H7])
     
     # Caso o número de janelamento seja 9.
     elif n_janelamento == 9:
@@ -76,7 +76,7 @@ def matriz_H(n_janelamento):
         H9 = [0, 0, 0, 0, g1, g2, g3, g4, g5]
         
         # Construção da matriz H a partir dessas linhas.
-        H = list(zip(H1, H2, H3, H4, H5, H6, H7, H8, H9))
+        H = np.array([H1, H2, H3, H4, H5, H6, H7, H8, H9])
     
     # Caso o número de janelamento seja 11.
     elif n_janelamento == 11:
@@ -108,7 +108,7 @@ def matriz_H(n_janelamento):
         H11 = [0, 0, 0, 0, 0, g1, g2, g3, g4, g5, g6]
         
         # Construção da matriz H a partir dessas linhas.
-        H = list(zip(H1, H2, H3, H4, H5, H6, H7, H8, H9, H10, H11))
+        H = np.array([H1, H2, H3, H4, H5, H6, H7, H8, H9, H10, H11])
         
     # Caso o número de janelamento seja 13.
     elif n_janelamento == 13:
@@ -144,7 +144,7 @@ def matriz_H(n_janelamento):
         H13 = [0, 0, 0, 0, 0, 0, g1, g2, g3, g4, g5, g6, g7]
         
         # Construção da matriz H a partir dessas linhas.
-        H = list(zip(H1, H2, H3, H4, H5, H6, H7, H8, H9, H10, H11, H12, H13))
+        H = np.array([H1, H2, H3, H4, H5, H6, H7, H8, H9, H10, H11, H12, H13])
         
     # Caso o número de janelamento seja 15.
     elif n_janelamento == 15:
@@ -184,7 +184,7 @@ def matriz_H(n_janelamento):
         H15 = [0, 0, 0, 0, 0, 0, 0, g1, g2, g3, g4, g5, g6, g7, g8]
         
         # Construção da matriz H a partir dessas linhas.
-        H = list(zip(H1, H2, H3, H4, H5, H6, H7, H8, H9, H10, H11, H12, H13, H14, H15))
+        H = np.array([H1, H2, H3, H4, H5, H6, H7, H8, H9, H10, H11, H12, H13, H14, H15])
     
     # Caso o número de janelamento seja 17.
     elif n_janelamento == 17:
@@ -228,7 +228,7 @@ def matriz_H(n_janelamento):
         H17 = [0, 0, 0, 0, 0, 0, 0, 0, g1, g2, g3, g4, g5, g6, g7, g8, g9]
         
         # Construção da matriz H a partir dessas linhas.
-        H = list(zip(H1, H2, H3, H4, H5, H6, H7, H8, H9, H10, H11, H12, H13, H14, H15, H16, H17))
+        H = np.array([H1, H2, H3, H4, H5, H6, H7, H8, H9, H10, H11, H12, H13, H14, H15, H16, H17])
         
     # Caso o número de janelamento seja 19.
     elif n_janelamento == 19:
@@ -276,10 +276,7 @@ def matriz_H(n_janelamento):
         H19 = [0, 0, 0, 0, 0, 0, 0, 0, 0, g1, g2, g3, g4, g5, g6, g7, g8, g9, g10]
         
         # Construção da matriz H a partir dessas linhas.
-        H = list(zip(H1, H2, H3, H4, H5, H6, H7, H8, H9, H10, H11, H12, H13, H14, H15, H16, H17, H18, H19))
-        
-    # Conversão dessa lista para um numpy array.
-    H = np.array(H)
+        H = np.array([H1, H2, H3, H4, H5, H6, H7, H8, H9, H10, H11, H12, H13, H14, H15, H16, H17, H18, H19])
     
     # A função retorna a matriz H.
     return H
@@ -299,7 +296,7 @@ def metodo_desconvolucao_P_igual_N(Matriz_Pulsos_Sinais, vetor_amplitude_referen
         
         # A variável H recebe o retorno da função matriz_H.
         H = matriz_H(n_janelamento)
-    
+        
         # O vetor vetor_pulsos_sinais corresponde a linha de índice indice_linha da matriz Matriz_Pulsos_Sinais.    
         vetor_pulsos_sinais = Matriz_Pulsos_Sinais[indice_linha]
     
@@ -327,7 +324,7 @@ def metodo_desconvolucao_P_igual_N(Matriz_Pulsos_Sinais, vetor_amplitude_referen
          
         # Cálculo do erro de estimação da amplitude.
         erro_amplitude = valor_amplitude_referencia-amplitude_estimada
-    
+
         # O elemento erro_amplitude é adicionado na lista correspondente.    
         lista_erro_amplitude.append(erro_amplitude)
 

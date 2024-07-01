@@ -1,6 +1,6 @@
 # EXPERIMENTO ATLAS - Reconstrução de sinal - Método de Desconvolução de Sinal - Estimação da amplitude.
 # Autor: Guilherme Barroso Morett.
-# Data: 28 de junho de 2024.
+# Data: 30 de junho de 2024.
 
 # Objetivo do código: gráfico do desempenho (EME, MSE, MAE, SNR E DP) ao longo das ocupações de acordo com o janelamento ideal para o método de Desconvolução de Sinal para a estimação da amplitude.
 
@@ -152,9 +152,9 @@ def grafico_dado_estatistico_desempenho_desconvolucao(opcao_avaliacao_desempenho
         
 ### -------------------------------------------------------------------------------------------------------------------------------------------- ###        
         
-### ---------------------------------------------------- 3) FUNÇÃO PRINCIPAL DO CÓDIGO (MAIN) -------------------------------------------------- ###
+### ---------------------------------------------------- 3) INSTRUÇÃO PRINCIPAL DO CÓDIGO (MAIN) -------------------------------------------------- ###
 
-# Definição da função principal (main) para esse código.
+# Definição da instrução principal (main) para esse código.
 def principal_grafico_dado_estatistico_desempenho_desconvolucao():
     
     # Impressão de mensagem no terminal.
@@ -219,7 +219,7 @@ def principal_grafico_dado_estatistico_desempenho_desconvolucao():
 
 ### -------------------------------------------------------------------------------------------------------------------------------------------- ###
     
-# Chamada da função principal do código.
+# Chamada da isntrução principal do código.
 principal_grafico_dado_estatistico_desempenho_desconvolucao()
 
 # Impressão de uma linha que representa o fim do programa.

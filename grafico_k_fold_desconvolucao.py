@@ -1,6 +1,6 @@
 # EXPERIMENTO ATLAS - Reconstrução de sinal - Método de Desconvolução de Sinal - Estimação da amplitude.
 # Autor: Guilherme Barroso Morett.
-# Data: 28 de junho de 2024.
+# Data: 30 de junho de 2024.
 
 # Objetivo do código: construção do gráfico da validação cruzada K-Fold para o método de Desconvolução de Sinal - P = N.
 
@@ -379,7 +379,7 @@ def principal_grafico_k_fold():
     
 ### -------------------------------------------------------------------------------------------------------------------------------------------- ###
 
-# Chamada da função principal do código.
+# Chamada da instrução principal do código.
 principal_grafico_k_fold()
 
 # Impressão de uma linha que representa o fim do programa.

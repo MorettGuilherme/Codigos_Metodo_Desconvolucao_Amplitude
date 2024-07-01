@@ -1,6 +1,6 @@
 # EXPERIMENTO ATLAS - Reconstrução de sinal - Método de Desconvolução de Sinal - Estimação da amplitude.
 # Autor: Guilherme Barroso Morett.
-# Data: 28 de junho de 2024.
+# Data: 30 de junho de 2024.
 
 # Objetivo do código: gráfico dos dados estatísticos ao longo das ocupações de acordo com o janelamento para o método de Desconvolução de Sinal.
 
@@ -13,7 +13,7 @@ Funções presentes:
 
 1) Função para a leitura dos dados estatísticos de todas as ocupações para um determinado janelamento.
 Entrada: número de janelamento.
-Saída: Matriz com os dados de entrada organizados de acordo com a coluna (número da ocupação, média, variância e desvio padrão do erro de estimação da amplitude).
+Saída: matriz com os dados de entrada organizados de acordo com a coluna (número da ocupação, média, variância e desvio padrão do erro de estimação da amplitude).
 
 2) Instrução para o plote do gráfico do dado estatístico ao longo das ocupações para um determinado janelamento.
 Entrada: dado estatístico desejado (média, variância ou desvio padrão) e a matriz dos dados.
@@ -145,7 +145,7 @@ def grafico_dado_estatistico_janelamento(dado_estatistico, Matriz_Dados_Estatist
         
 ### -------------------------------------------------- 3) INSTRUÇÃO PRINCIPAL DO CÓDIGO (MAIN) ------------------------------------------------- ###
 
-# Definição da função principal (main) para esse código.
+# Definição da instrução principal (main) para esse código.
 def principal_grafico_dado_estatistico_janelamento_desconvolucao():
     
     # Impressão de mensagem no terminal.
@@ -189,7 +189,7 @@ def principal_grafico_dado_estatistico_janelamento_desconvolucao():
 
 ### -------------------------------------------------------------------------------------------------------------------------------------------- ###
     
-# Chamada da função principal do código.
+# Chamada da instrução principal do código.
 principal_grafico_dado_estatistico_janelamento_desconvolucao()
 
 # Impressão de uma linha que representa o fim do programa.

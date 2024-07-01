@@ -1,6 +1,6 @@
 # EXPERIMENTO ATLAS - Reconstrução de sinal - Método de Desconvolução de Sinal - Estimação da amplitude.
 # Autor: Guilherme Barroso Morett.
-# Data: 28 de maio de 2024.
+# Data: 30 de junho de 2024.
 
 # Objetivo do código: realização da leitura dos dados de ocupação no formato free running.
 
@@ -22,13 +22,12 @@ Entrada: matriz dos dados de ocupação.
 Saída: matriz dos dados de ocupação sem o valor do pedestal na coluna dos pulsos de sinais.
 
 3) Função para a construção da matriz dos pulsos de sinais e o vetor do parâmetro de referência.
-Entrada: Matriz dos dados de ocupação.
-Saída: Matriz dos pulsos de sinais com a quantidade de linhas de acordo com o janelamento proposto, vetor da amplitude de referência e o vetor da fase de referência.
+Entrada: matriz dos dados de ocupação.
+Saída: matriz dos pulsos de sinais com a quantidade de linhas de acordo com o janelamento proposto, vetor da amplitude de referência e o vetor da fase de referência.
 
 4) Função para separação em dados de treino e teste.
 Entrada: matriz com os dados de pulsos de sinais e o vetor com o parâmetro de referência.
 Saída: matriz de treino e teste dos pulsos de sinais e o vetor de treino e teste do parâmetro de referência.
-
 """
 
 # Importação das bibliotecas.
@@ -80,7 +79,7 @@ def retirada_pedestal(Matriz_Dados_OC):
     # A variável linhas_Matriz_Dados_OC armazena a quantidade de linhas da matriz Matriz_Dados_OC.
     linhas_Matriz_Dados_OC = len(Matriz_Dados_OC)
 
-    # Construção de uma matriz em que a coluna unitária corresponde ao pulsos de sinais do arquivo de entrada.
+    # Construção de uma matriz em que a coluna unitária corresponde aos pulsos de sinais do arquivo de entrada.
     Matriz_Pedestal = [[0, 1, 0, 0] for i in range(linhas_Matriz_Dados_OC)]
 
     # Conversão dessa matriz para o tipo numpy array.
