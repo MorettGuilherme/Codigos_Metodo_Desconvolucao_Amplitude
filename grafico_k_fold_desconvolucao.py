@@ -1,24 +1,24 @@
-# EXPERIMENTO ATLAS - Reconstrução de sinal - Método de Desconvolução de Sinal - Estimação da amplitude.
+# EXPERIMENTO ATLAS - Reconstrução de sinal - Método de Desconvolução de Sinal para o caso P = N - Estimação da amplitude.
 # Autor: Guilherme Barroso Morett.
-# Data: 30 de junho de 2024.
+# Data: 28 de julho de 2024.
 
-# Objetivo do código: construção do gráfico da validação cruzada K-Fold para o método de Desconvolução de Sinal - P = N.
+# Objetivo do código: construção do gráfico da validação cruzada K-Fold para o método de Desconvolução de Sinal para o caso - P = N.
 
 """ 
 Organização do código:
 
 Funções presentes:
 
-1) Função para a leitura dos dados estatísticos da validação cruzada K-Fold.
+1) Função para a leitura dos dados estatísticos da validação cruzada K-Fold para o método de Desconvolução de Sinal.
 Entrada: número de ocupação.
 Saída: matriz com os dados da ocupação organizados de acordo com a coluna (número do janelamento, média, variância e desvio padrão do dado estatístico)
 
-2) Instrução para a construção do gráfico tipo A da validação cruzada K-Fold.
+2) Instrução para a construção do gráfico tipo A da validação cruzada K-Fold para o método de Desconvolução de Sinal.
 Obs.: esse gráfico mostra a média do dado estatístico (média, variância e desvio padrão do erro de estimação da amplitude) com as barras de erro para cada um dos janelamentos ao decorrer das ocupações.
 Entrada: matriz com os dados da ocupação organizados.
 Saída: nada.
 
-3) Instrução para a construção do gráfico tipo B da validação cruzada K-Fold.
+3) Instrução para a construção do gráfico tipo B da validação cruzada K-Fold para o método de Desconvolução de Sinal.
 Obs.: esse gráfico mostra a média do dado estatístico (média, variância e desvio padrão do erro de estimação da amplitude) com as barras de erro para cada uma das ocupações ao decorrer do janelamento.
 Entrada: matriz com os dados da ocupação organizados.
 Saída: nada.
@@ -40,7 +40,7 @@ print("\n-----------------------------------------------------------------------
 # Título do programa.
 
 # A variável titulo_programa armazena o título em negrito.
-titulo_programa = colored("Plote do gráfico da validação cruzada K-Fold para o método de Desconvolução de Sinal - P = N:\n", attrs=["bold"])
+titulo_programa = colored("Plote do gráfico da validação cruzada K-Fold para o método de Desconvolução de Sinal para o caso P = N:\n", attrs=["bold"])
 
 # Impressão do título do programa.
 print(titulo_programa)

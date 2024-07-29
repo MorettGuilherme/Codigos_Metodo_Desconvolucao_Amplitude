@@ -1,24 +1,22 @@
-# EXPERIMENTO ATLAS - Reconstrução de sinal - Método de Desconvolução de Sinal - Estimação da amplitude.
+# EXPERIMENTO ATLAS - Reconstrução de sinal - Método de Desconvolução de Sinal para o caso P = N - Estimação da amplitude.
 # Autor: Guilherme Barroso Morett.
-# Data: 30 de junho de 2024.
+# Data: 28 de julho de 2024.
 
-# Objetivo do código: geração de arquivos de saída baseados nos dados estatísticos dos histogramas do erro de estimação pelo método de Desconvolução de Sinal.
+# Objetivo do código: geração de arquivos de saída baseados nos dados estatísticos dos histogramas do erro de estimação pelo método de Desconvolução de Sinal para o caso P = N.
 
 """ 
 Organização do Código:
 
 Importação de arquivos.
-Leitura dos dados de ocupação: leitura_dados_ocupacao_desconvolucao.py
 Método de Desconvolução: metodo_desconvolucao.py
-Histograma do erro da estimação da amplitude pelo método de Desconvolução: histograma_erro_amplitude_desconvolucao.py
 
 Funções presentes:
 
-1) Função para o cálculo dos dados estatístico do erro de estimação da amplitude.
+1) Função para o cálculo dos dados estatístico do erro de estimação da amplitude pelo método de Desconvolução de Sinal.
 Entrada: lista com o erro de estimação da amplitude.
 Saída: a média, a variância e o desvio padrão do erro de estimação.
 
-2) Instrução para salvar os dados estatísticos do erro de estimação da amplitude para determinada ocupação em um arquivo de saída.
+2) Instrução para salvar os dados estatísticos do erro de estimação da amplitude para determinada ocupação em um arquivo de saída pelo método de Desconvolução de Sinal.
 Entrada: a média, a variância e o desvio padrão do erro de estimação da amplitude.
 Saída: nada.
 
@@ -45,37 +43,37 @@ print("\n-----------------------------------------------------------------------
 # Título do programa.
 
 # A variável titulo_programa armazena o título em negrito.
-titulo_programa = colored("Geração de arquivos de saída baseados nos dados estatísticos dos histogramas do erro de estimação pelo método de Desconvolução de Sinal - P = N:\n", attrs=["bold"])
+titulo_programa = colored("Geração de arquivos de saída baseados nos dados estatísticos dos histogramas do erro de estimação pelo método de Desconvolução de Sinal para o caso P = N:\n", attrs=["bold"])
 
 # Impressão do título do programa.
 print(titulo_programa)
 
-### -------------------------- 1) FUNÇÃO PARA O CÁLCULO DOS DADOS ESTATÍSTICOS DO ERRO DE ESTIMAÇÃO DA AMPLITUDE ------------------------------- ###
+### --------- 1) FUNÇÃO PARA O CÁLCULO DOS DADOS ESTATÍSTICOS DO ERRO DE ESTIMAÇÃO DA AMPLITUDE PELO MÉTODO DE DESCONVOLUÇÃO DE SINAL ---------- ###
 
-# Definição da função para o cálculo dos dados estatísticos do erro de estimação da amplitude.
-def dados_estatisticos_erro_amplitude(lista_erro_amplitude):
+# Definição da função para o cálculo dos dados estatísticos do erro de estimação da amplitude pelo método de Desconvolução de Sinal.
+def dados_estatisticos_erro_estimacao_amplitude_desconvolucao(lista_erro_estimacao_amplitude):
     
-    # A lista do erro da amplitude é convertida para o tipo numpy array.
-    vetor_erro_amplitude = np.array(lista_erro_amplitude)
+    # A lista do erro de estimação da amplitude é convertida para o tipo numpy array.
+    vetor_erro_estimacao_amplitude = np.array(lista_erro_estimacao_amplitude)
 
     # Cálculo da média do erro de estimação da amplitude.
-    media_erro_amplitude = np.mean(vetor_erro_amplitude)
+    media_erro_estimacao_amplitude = np.mean(vetor_erro_estimacao_amplitude)
 
     # Cálculo da variância do erro de estimação da amplitude.
-    var_erro_amplitude = np.var(vetor_erro_amplitude)
+    var_erro_estimacao_amplitude = np.var(vetor_erro_estimacao_amplitude)
 
     # Cálculo do desvio padrão do erro de estimação da amplitude.
-    desvio_padrao_erro_amplitude = np.std(vetor_erro_amplitude)
+    desvio_padrao_erro_estimacao_amplitude = np.std(vetor_erro_estimacao_amplitude)
     
     # A função retorna a média, a variância e o desvio padrão dos dados do erro de estimação da amplitude.
-    return media_erro_amplitude, var_erro_amplitude, desvio_padrao_erro_amplitude
+    return media_erro_estimacao_amplitude, var_erro_estimacao_amplitude, desvio_padrao_erro_estimacao_amplitude
     
 ### -------------------------------------------------------------------------------------------------------------------------------------------- ###
 
-### ---------------- 2) INSTRUÇÃO PARA A IMPRESSÃO DOS DADOS ESTATÍSTICOS DO ERRO DE ESTIMAÇÃO DA AMPLITUDE EM UM ARQUIVO DE SAÍDA ------------- ###
+### ------- 2) INSTRUÇÃO PARA A IMPRESSÃO DOS DADOS ESTATÍSTICOS DO ERRO DE ESTIMAÇÃO DA AMPLITUDE EM UM ARQUIVO DE SAÍDA PELO MÉTODO DE DESCONVOLUÇÃO DE SINAL ------- ###
 
-# Definição da função para salvar os dados estatísticos do erro de estimação da amplitude em arquivo de saída.
-def arquivo_saida_dados_estatisticos_erro_amplitude(n_ocupacao, n_janelamento, media_erro_amplitude, var_erro_amplitude, desvio_padrao_erro_amplitude):
+# Definição da função para salvar os dados estatísticos do erro de estimação da amplitude em arquivo de saída pelo método de Desconvolução de Sinal.
+def arquivo_saida_dados_estatisticos_erro_estimacao_amplitude_desconvolucao(n_ocupacao, n_janelamento, media_erro_estimacao_amplitude, var_erro_estimacao_amplitude, desvio_padrao_erro_estimacao_amplitude):
 
     # Definição do título presente no arquivo de saída.
     titulo_arquivo_saida = "Oc,media_erro,var_Erro,desvio_padrao_erro\n"
@@ -112,7 +110,7 @@ def arquivo_saida_dados_estatisticos_erro_amplitude(n_ocupacao, n_janelamento, m
         # Abre o arquivo de saída no modo de acrescentar (append).
         with open(caminho_arquivo_saida, "a") as arquivo_saida_dados_estatisticos:
             # Escrita dos dados de interesse.
-            arquivo_saida_dados_estatisticos.write(f"{n_ocupacao},{media_erro_amplitude},{var_erro_amplitude},{desvio_padrao_erro_amplitude}\n")
+            arquivo_saida_dados_estatisticos.write(f"{n_ocupacao},{media_erro_estimacao_amplitude},{var_erro_estimacao_amplitude},{desvio_padrao_erro_estimacao_amplitude}\n")
         
     # Excessão.
     except Exception as e:
@@ -158,13 +156,13 @@ def principal_arquivo_saida_dados_estatisticos_desconvolucao():
     
             vetor_amostras_pulsos, vetor_amplitude_referencia, _ = amostras_pulsos_e_referencia(Matriz_Dados_OC_Sem_Pedestal)
     
-            Matriz_Dados_Pulsos, vetor_parametro_referencia = amostras_janelamento(vetor_amostras_pulsos, vetor_amplitude_referencia, n_janelamento)
+            Matriz_Dados_Pulsos_Janelado, vetor_parametro_referencia_janelado = amostras_janelamento(vetor_amostras_pulsos, vetor_amplitude_referencia, n_janelamento)
     
-            lista_erro_amplitude = metodo_desconvolucao_P_igual_N(Matriz_Dados_Pulsos, vetor_parametro_referencia, n_janelamento)
+            lista_erro_estimacao_amplitude = metodo_desconvolucao_P_igual_N(n_janelamento, Matriz_Dados_Pulsos_Janelado, vetor_parametro_referencia_janelado)
     
-            media_erro_amplitude, var_erro_amplitude, desvio_padrao_erro_amplitude = dados_estatisticos_erro_amplitude(lista_erro_amplitude)
+            media_erro_estimacao_amplitude, var_erro_estimacao_amplitude, desvio_padrao_erro_estimacao_amplitude = dados_estatisticos_erro_estimacao_amplitude_desconvolucao(lista_erro_estimacao_amplitude)
     
-            arquivo_saida_dados_estatisticos_erro_amplitude(numero_ocupacao, n_janelamento, media_erro_amplitude, var_erro_amplitude, desvio_padrao_erro_amplitude)
+            arquivo_saida_dados_estatisticos_erro_estimacao_amplitude_desconvolucao(numero_ocupacao, n_janelamento, media_erro_estimacao_amplitude, var_erro_estimacao_amplitude, desvio_padrao_erro_estimacao_amplitude)
             
 ### -------------------------------------------------------------------------------------------------------------------------------------------- ###
 

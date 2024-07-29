@@ -1,8 +1,8 @@
-# EXPERIMENTO ATLAS - Reconstrução de sinal - Método de Desconvolução de Sinal - Estimação da amplitude.
+# EXPERIMENTO ATLAS - Reconstrução de sinal - Método de Desconvolução de Sinal para o caso P = N - Estimação da amplitude.
 # Autor: Guilherme Barroso Morett.
-# Data: 30 de junho de 2024.
+# Data: 28 de julho de 2024.
 
-# Objetivo do código: gráfico dos dados estatísticos ao longo das ocupações de acordo com o janelamento para o método de Desconvolução de Sinal.
+# Objetivo do código: gráfico dos dados estatísticos ao longo das ocupações de acordo com o janelamento para o método de Desconvolução de Sinal para o caso P = N.
 
 """ 
 Organização do Código:
@@ -36,15 +36,15 @@ print("\n-----------------------------------------------------------------------
 # Título do programa.
 
 # A variável titulo_programa armazena o título em negrito.
-titulo_programa = colored("Plote do gráfico do dado estatístico do erro de estimação da amplitude ao longo das ocupações para um determinado janelamento pelo método de Desconvolução de Sinal - P = N:\n", attrs=["bold"])
+titulo_programa = colored("Plote do gráfico do dado estatístico do erro de estimação da amplitude ao longo das ocupações para um determinado janelamento pelo método de Desconvolução de Sinal para o caso P = N:\n", attrs=["bold"])
 
 # Impressão do título do programa.
 print(titulo_programa)
 
-### -------------- 1) FUNÇÃO PARA A LEITURA DOS DADOS ESTATÍSTICOS DE TODAS AS OCUPAÇÕES PARA UM DETERMINADO JANELAMENTO ----------------------- ###
+### -------- 1) FUNÇÃO PARA A LEITURA DOS DADOS ESTATÍSTICOS DE TODAS AS OCUPAÇÕES PARA UM DETERMINADO JANELAMENTO PARA O MÉTODO DE DESCONVOLUÇÃO DE SINAL ----------------- ###
 
-# Definição da função para a leitura dos dados estatísticos de todas as ocupações para um determinado janelamento.
-def leitura_dados_estatisticos_janelamento(n_janelamento):
+# Definição da função para a leitura dos dados estatísticos de todas as ocupações para um determinado janelamento para o método de Desconvolução de Sinal.
+def leitura_dados_estatisticos_janelamento_desconvolucao(n_janelamento):
 
     # Nome da pasta em que se encontra o arquivo de entrada dos dados estatísticos de acordo com o janelamento.
     pasta_dados_estatisticos_janelamento = "Dados_Estatisticos_Desconvolucao_OC"
@@ -78,10 +78,10 @@ def leitura_dados_estatisticos_janelamento(n_janelamento):
 
 ### -------------------------------------------------------------------------------------------------------------------------------------------- ###
 
-### ----------- 2) INSTRUÇÃO PARA O PLOTE DO GRÁFICO DOS DADOS ESTATÍSTICOS AO LONGO DAS OCUPAÇÕES PARA UM DETERMINADO JANELAMENTO ------------- ###
+### -------- 2) INSTRUÇÃO PARA O PLOTE DO GRÁFICO DOS DADOS ESTATÍSTICOS AO LONGO DAS OCUPAÇÕES PARA UM DETERMINADO JANELAMENTO PARA O MÉTODO DE DESCONVOLUÇÃO DE SINAL --------- ###
 
-# Definição da função para o plote do gráfico do dado estatístico ao longo das ocupações para um determinado janelamento.
-def grafico_dado_estatistico_janelamento(dado_estatistico, Matriz_Dados_Estatisticos_Janelamento):
+# Definição da função para o plote do gráfico do dado estatístico ao longo das ocupações para um determinado janelamento para o método de Desconvolução de Sinal.
+def grafico_dado_estatistico_janelamento_desconvolucao(dado_estatistico, Matriz_Dados_Estatisticos_Janelamento):
     
     # Definição da variável indice_coluna_ocupações que armazena o valor do índice da coluna das ocupações.
     indice_coluna_ocupacoes = 0
@@ -183,9 +183,9 @@ def principal_grafico_dado_estatistico_janelamento_desconvolucao():
         
     # Chamada das funções.
     
-    Matriz_Dados_Estatisticos_Janelamento = leitura_dados_estatisticos_janelamento(n_janelamento)
+    Matriz_Dados_Estatisticos_Janelamento = leitura_dados_estatisticos_janelamento_desconvolucao(n_janelamento)
     
-    grafico_dado_estatistico_janelamento(dado_estatistico, Matriz_Dados_Estatisticos_Janelamento)
+    grafico_dado_estatistico_janelamento_desconvolucao(dado_estatistico, Matriz_Dados_Estatisticos_Janelamento)
 
 ### -------------------------------------------------------------------------------------------------------------------------------------------- ###
     

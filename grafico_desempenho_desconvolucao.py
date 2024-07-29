@@ -1,8 +1,8 @@
-# EXPERIMENTO ATLAS - Reconstrução de sinal - Método de Desconvolução de Sinal - Estimação da amplitude.
+# EXPERIMENTO ATLAS - Reconstrução de sinal - Método de Desconvolução de Sinal para o caso P = N - Estimação da amplitude.
 # Autor: Guilherme Barroso Morett.
-# Data: 30 de junho de 2024.
+# Data: 28 de julho de 2024.
 
-# Objetivo do código: gráfico do desempenho (EME, MSE, MAE, SNR E DP) ao longo das ocupações de acordo com o janelamento ideal para o método de Desconvolução de Sinal para a estimação da amplitude.
+# Objetivo do código: gráfico do desempenho (EME, MSE, MAE, SNR E DP) ao longo das ocupações de acordo com o janelamento ideal para o método de Desconvolução de Sinal para o caso P = N para a estimação da amplitude.
 
 """ 
 Organização do Código:
@@ -36,7 +36,7 @@ print("\n-----------------------------------------------------------------------
 # Título do programa.
 
 # A variável titulo_programa armazena o título em negrito.
-titulo_programa = colored("Plote do gráfico do desempenho (EME, MSE, MAE, SNR ou DP) ao longo das ocupações de acordo com o janelamento ideal para o método de Desconvolução de Sinal:\n", attrs=["bold"])
+titulo_programa = colored("Plote do gráfico do desempenho (EME, MSE, MAE, SNR ou DP) ao longo das ocupações de acordo com o janelamento ideal para o método de Desconvolução de Sinal para o caso P = N:\n", attrs=["bold"])
 
 # Impressão do título do programa.
 print(titulo_programa)
@@ -78,9 +78,9 @@ def leitura_dados_estatisticos_desempenho_desconvolucao(parametro, n_janelamento
 
 ### -------------------------------------------------------------------------------------------------------------------------------------------- ###
 
-### ---------- 2) FUNÇÃO PARA O PLOTE DOS GRÁFICO DO DADO ESTATÍSTICO DO DESEMPENHO AO LONGO DAS OCUPAÇÕES PARA O JANELAMENTO IDEAL ------------ ###
+### ---------- 2) FUNÇÃO PARA O PLOTE DOS GRÁFICO DO DADO ESTATÍSTICO DO DESEMPENHO AO LONGO DAS OCUPAÇÕES PARA O JANELAMENTO IDEAL PARA O MÉTODO DE DESCONVOLUÇÃO DE SINAL ------------ ###
 
-# Definição da função para o plote do gráfico do dado estatístico do desempenho ao longo das ocupações para o janelamento ideal.
+# Definição da função para o plote do gráfico do dado estatístico do desempenho ao longo das ocupações para o janelamento ideal para o método de Desconvolução de Sinal.
 def grafico_dado_estatistico_desempenho_desconvolucao(opcao_avaliacao_desempenho, Matriz_Dados_Desempenho):
     
     # Definição da variável indice_coluna_ocupações que armazena o valor do índice da coluna das ocupações.

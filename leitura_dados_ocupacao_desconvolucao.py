@@ -174,10 +174,10 @@ def amostras_janelamento(amostras, parametro_referencia, n_janelamento):
 
 ### -------------------------------------------------------------------------------------------------------------------------------------------- ###
 
-### ---------------------------------- 4) FUNÇÃO PARA SEPARAÇÃO EM DADOS DE TREINO E DE TESTE -------------------------------------------------- ###
+### ------------------------------ 4) FUNÇÃO PARA SEPARAÇÃO EM DADOS DE TREINO E DE TESTE PARA O HISTOGRAMA ------------------------------------ ###
 
 # Definição da função para a separação dos dados em treino e teste.
-def dados_treino_teste(Matriz_Dados_Pulsos, vetor_parametro_referencia):
+def dados_treino_teste_histograma(Matriz_Dados_Pulsos, vetor_parametro_referencia):
     
     # Obs.: certifique-se que a Matriz e o vetor tenham a mesma quantidade de linhas.
     

@@ -1,6 +1,6 @@
 # EXPERIMENTO ATLAS - Reconstrução de sinal - Método de Desconvolução de Sinal - Estimação da amplitude.
 # Autor: Guilherme Barroso Morett.
-# Data: 30 de junho de 2024.
+# Data: 28 de julho de 2024.
 
 # Objetivo do código: implementação da validação cruzada para o método de Desconvolução de Sinal.
 

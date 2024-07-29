@@ -1,4 +1,4 @@
-O método de Desconvolução de Sinal para o sistema linear invariante no tempo na estimação da amplitude independe do efeito de empilhamento. Matematicamente, isso quer dizer que durante a etapa de estimação, não há a utilização dos dados de ruídos. De fato, o processo é bem simples, pois para obter o vetor de amplitude estimadas (a amplitude estimada é a central), basta calcular a inversa da matriz que contém os pulsos de referência deslocados (matriz de desconvolução) e multiplicar pelo vetor de pulsos de sinais janelados.
+O método de Desconvolução de Sinal para o sistema linear invariante no tempo na estimação da amplitude independe do efeito de empilhamento. Matematicamente, isso significa que durante a etapa de estimação, não há a utilização dos dados de ruídos. De fato, o processo é bem simples, pois para obter o vetor de amplitude estimadas (a amplitude estimada é a central), basta calcular a inversa da matriz que contém os pulsos de referência deslocados (matriz de desconvolução) e multiplicar pelo vetor de pulsos de sinais janelados.
 Nesse trabalho, o objetivo é determinar o janelamento mais adequado a partir da análise média do erro de estimação da amplitude e o desvio padrão.
 O resultado foi que o janelamento 15 pode ser considerado como ideal.
 
@@ -40,7 +40,7 @@ A seguir estão listadas as pastas e também os arquivos contidos nesse reposit�
 12) Workshop_Slides
 - Essa pasta contém os slides da apresentação realizada no grupo ATLAS/Brasil.
 
-13) analise_desempenho_desconvolucao.py
+13) arquivo_saida_desempenho_desconvolucao.py
 - Instrução para salvar em arquivos os dados estatísticos do desempenho do método de Desconvolução de Sinal;
 - Função para o cálculo do desempenho do Desconvolução de Sinal pelo Erro Médio de Estimação (EME);
 - Função para o cálculo do desempenho do método de Desconvolução de Sinal pelo Erro Médio Quadrático (Mean Squared Error - MSE);
@@ -55,31 +55,31 @@ A seguir estão listadas as pastas e também os arquivos contidos nesse reposit�
 - Salvar os dados estatísticos do erro de estimação para determinada ocupação em uma arquivo de saída;
 - Instrução principal do código.
 
-15) grafico_dado_estatistico_janelamento_desconvolucao.py
+15) arquivo_saida_k_fold_desconvolucao.py
+- Salvar em arquivos os dados estatísticos pela validação cruzada k-Fold;
+- Validação cruzada K-Fold (cem blocos);
+- Instrução principal do código.
+
+16) grafico_dado_estatistico_janelamento_desconvolucao.py
 - Leitura dos dados estatísticos de todas as ocupações para um determinado janelamento;
 - Plote do gráfico do dado estatístico ao longo das ocupações para um determinado janelamento;
 - Instrução principal do código.
 
-16) grafico_desempenho_desconvolucao.py
+17) grafico_desempenho_desconvolucao.py
 - Função para a leitura dos dados do desempenho do método de Desconvolução de Sinal de todas as ocupações para o janelamento ideal;
 - Instrução para o plote do gráfico do desempenho do método de Desconvolução de Sinal ao longo das ocupações para o janelamento ideal;
 - Instrução principal do código.
 
-17) grafico_k_fold_desconvolucao.py
+18) grafico_k_fold_desconvolucao.py
 - Leitura dos dados estatísticos da validação cruzada K-Fold;
 - Construção do gráfico tipo A da validação cruzada K-Fold (esse gráfico mostra a média do dado estatatístico com as barras de erro para cada um dos janelamentos ao decorrer das ocupações);
 - Construção do gráfico tipo B da validação cruzada K-Fold (esse gráfico mostra a média do dado estatatístico com as barras de erro para cada uma das ocupações ao decorrer do janelamento);
 - Instrução principal do código.
 
-18) histograma_erro_amplitude_desconvolucao.py
+19) histograma_erro_amplitude_desconvolucao.py
 - Cálculo da estatística do erro de estimação;
 - Salvar os dados estatísticos do erro de estimação para determinada ocupação em uma arquivo de saída;
 - Plote do histograma do erro de estimação;
-- Instrução principal do código.
-
-19) k_fold_desconvolucao.py
-- Salvar em arquivos os dados estatísticos pela validação cruzada k-Fold;
-- Validação cruzada K-Fold (cem blocos);
 - Instrução principal do código.
 
 20) leitura_dados_ocupacao_desconvolucao.py

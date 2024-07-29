@@ -1,8 +1,8 @@
 # EXPERIMENTO ATLAS - Reconstrução de sinal - Método de Desconvolução de Sinal - Estimação da amplitude.
 # Autor: Guilherme Barroso Morett.
-# Data: 30 de junho de 2024.
+# Data: 28 de julho de 2024.
 
-# Objetivo do código: aplicação do método de Desconvolução de Sinal - P = N.
+# Objetivo do código: aplicação do método de Desconvolução de Sinal para o caso P = N.
 
 """ 
 Organização do Código:
@@ -13,7 +13,7 @@ Funções presentes:
 Entrada: número de janelamento.
 Saída: matriz H.
 
-2) Instrução para o método de Desconvolução para o caso N = P.
+2) Instrução para o método de Desconvolução para o caso P = N.
 Entrada: matriz com os pulsos de sinais e o vetor da amplitude de referência.
 Saída: nada.
 """
@@ -286,22 +286,22 @@ def matriz_H(n_janelamento):
 ### ---------------------------------------- 2) FUNÇÃO DO MÉTODO DE DESCONVOLUÇÃO DE SINAL ----------------------------------------------------- ###
 
 # Definição da função para o método de Desconvolução de Sinal.
-def metodo_desconvolucao_P_igual_N(Matriz_Pulsos_Sinais, vetor_amplitude_referencia, n_janelamento):  
+def metodo_desconvolucao_P_igual_N(n_janelamento, Matriz_Pulsos_Sinais_Janelado, vetor_amplitude_referencia_janelado):  
     
     # Criação da lista vazia para armazenar os erros calculados para a amplitude. 
-    lista_erro_amplitude = []
+    lista_erro_estimacao_amplitude = []
 
-    # Para o índice de zero até o número de linhas da matriz Matriz_Pulsos_Sinais.
-    for indice_linha in range(len(Matriz_Pulsos_Sinais)):
+    # Para o índice de zero até o número de linhas da matriz Matriz_Pulsos_Sinais_Janelado.
+    for indice_linha in range(len(Matriz_Pulsos_Sinais_Janelado)):
         
         # A variável H recebe o retorno da função matriz_H.
         H = matriz_H(n_janelamento)
         
-        # O vetor vetor_pulsos_sinais corresponde a linha de índice indice_linha da matriz Matriz_Pulsos_Sinais.    
-        vetor_pulsos_sinais = Matriz_Pulsos_Sinais[indice_linha]
+        # O vetor vetor_pulsos_sinais corresponde a linha de índice indice_linha da matriz Matriz_Pulsos_Sinais_Janelado.    
+        vetor_pulsos_sinais = Matriz_Pulsos_Sinais_Janelado[indice_linha]
     
-        # A amplitude de referência é o elemento de índice indice_linha do vetor vetor_amplitude_referencia.
-        valor_amplitude_referencia = vetor_amplitude_referencia[indice_linha]
+        # A amplitude de referência é o elemento de índice indice_linha do vetor vetor_amplitude_referencia_janelado.
+        valor_amplitude_referencia = vetor_amplitude_referencia_janelado[indice_linha]
         
         # Tenta calcular a inversa da matriz.
         try:
@@ -323,12 +323,12 @@ def metodo_desconvolucao_P_igual_N(Matriz_Pulsos_Sinais, vetor_amplitude_referen
         amplitude_estimada = vetor_amplitude_estimada[indice_amplitude_central]
          
         # Cálculo do erro de estimação da amplitude.
-        erro_amplitude = valor_amplitude_referencia-amplitude_estimada
+        erro_estimacao_amplitude = valor_amplitude_referencia-amplitude_estimada
 
-        # O elemento erro_amplitude é adicionado na lista correspondente.    
-        lista_erro_amplitude.append(erro_amplitude)
+        # O elemento erro_estimacao_amplitude é adicionado na lista correspondente.    
+        lista_erro_estimacao_amplitude.append(erro_estimacao_amplitude)
 
-    # A função retorna a lista lista_erro_amplitude.
-    return lista_erro_amplitude
+    # A função retorna a lista lista_erro_estimacao_amplitude.
+    return lista_erro_estimacao_amplitude
 
 ### -------------------------------------------------------------------------------------------------------------------------------------------- ###

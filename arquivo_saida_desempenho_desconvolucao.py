@@ -1,8 +1,8 @@
-# EXPERIMENTO ATLAS - Reconstrução de sinal - Método de Desconvolução de Sinal - Estimação da amplitude.
+# EXPERIMENTO ATLAS - Reconstrução de sinal - Método de Desconvolução de Sinal para o caso P = N - Estimação da amplitude.
 # Autor: Guilherme Barroso Morett.
-# Data: 30 de junho de 2024.
+# Data: 28 de julho de 2024.
 
-# Objetivo do código: cálculo do desempenho do método de Desconvolução de Sinal para a estimação da amplitude pela validação cruzada K-Fold.
+# Objetivo do código: cálculo do desempenho do método de Desconvolução de Sinal para o caso P = N para a estimação da amplitude pela validação cruzada K-Fold.
 
 """ 
 Organização do código:
@@ -63,12 +63,12 @@ print("\n-----------------------------------------------------------------------
 # Título do programa.
 
 # A variável titulo_programa armazena o título em negrito.
-titulo_programa = colored("Geração de arquivos de saída pela técnica de validação cruzada K-Fold para a estimação da amplitude pelo método de Desconvolução de Sinal:\n", attrs=["bold"])
+titulo_programa = colored("Geração de arquivos de saída pela técnica de validação cruzada K-Fold para a estimação da amplitude pelo método de Desconvolução de Sinal para o caso P = N:\n", attrs=["bold"])
 
 # Impressão do título do programa.
 print(titulo_programa)
 
-### ----------------------------------------- 1) INSTRUÇÃO PARA SALVAR OS DADOS ESTATÍSTICOS DO K-FOLD ----------------------------------------- ###
+### ------------------- 1) INSTRUÇÃO PARA SALVAR OS DADOS ESTATÍSTICOS DO K-FOLD PELO MÉTODO DESCONVOLUÇÃO DE SINAL ---------------------------- ###
 
 # Definição da instrução para salvar os dados estatísticos do desempenho do método de Desconvolução de Sinal em arquivo de saída.
 def arquivo_saida_dados_desempenho_desconvolucao(parametro, n_ocupacao, n_janelamento_ideal, media_dado_desempenho, var_dado_desempenho, DP_dado_desempenho, mecanismo_desempenho):
@@ -200,7 +200,7 @@ def DP(numero_elementos_bloco, bloco_erro_estimacao):
 ### ----------- 7) INSTRUÇÃO PARA A VALIDAÇÃO CRUZADA K-FOLD ADAPTADA PARA O CÁLCULO DO DESEMPENHO DO MÉTODO DE DESCONVOLUÇÃO DE SINAL --------- ###
 
 # Definição da instrução da técnica de validação cruzada K-Fold para o cálculo do desempenho do método de Desconvolução de Sinal.
-def K_fold_desempenho_desconvolucao(n_ocupacao, n_janelamento_ideal, opcao_avaliacao_desempenho, Matriz_Pulsos_Sinais, vetor_amplitude_referencia):
+def K_fold_desempenho_desconvolucao(n_ocupacao, n_janelamento_ideal, opcao_avaliacao_desempenho, Matriz_Pulsos_Sinais_Janelado, vetor_amplitude_referencia_janelado):
     
     # Criação da variável parâmetro que armazena a string "amplitude".
     parametro = "amplitude"
@@ -245,18 +245,18 @@ def K_fold_desempenho_desconvolucao(n_ocupacao, n_janelamento_ideal, opcao_avali
     quantidade_blocos = 100
 
     # Definição da quantidade de elementos de cada bloco.
-    quantidade_elementos_bloco = len(Matriz_Pulsos_Sinais) // quantidade_blocos
+    quantidade_elementos_bloco = len(Matriz_Pulsos_Sinais_Janelado) // quantidade_blocos
     
     # Para i de início em zero até a quantidade de elementos de amostras com incremento igual a quantidade_elementos_bloco.
-    for i in range(0, len(Matriz_Pulsos_Sinais), quantidade_elementos_bloco):
+    for i in range(0, len(Matriz_Pulsos_Sinais_Janelado), quantidade_elementos_bloco):
     
         # Definição do bloco de pulsos de sinais.
-        bloco_pulsos_sinais = Matriz_Pulsos_Sinais[i:i+quantidade_elementos_bloco]
+        bloco_pulsos_sinais = Matriz_Pulsos_Sinais_Janelado[i:i+quantidade_elementos_bloco]
         # O bloco dos pulsos de sinais é acrescentado a lista dos blocos dos pulsos de sinais.
         blocos_pulsos_sinais.append(bloco_pulsos_sinais)
     
         # Definição do bloco dos dados da amplitude de referência.
-        bloco_amplitude_referencia = vetor_amplitude_referencia[i:i+quantidade_elementos_bloco]
+        bloco_amplitude_referencia = vetor_amplitude_referencia_janelado[i:i+quantidade_elementos_bloco]
         # O bloco da amplitude de referência é acrescentado a lista dos blocos da amplitude de referência.
         blocos_amplitude_referencia.append(bloco_amplitude_referencia)
     
@@ -285,7 +285,7 @@ def K_fold_desempenho_desconvolucao(n_ocupacao, n_janelamento_ideal, opcao_avali
         bloco_treino_amplitude_referencia = [elemento for sublista in bloco_treino_amplitude_referencia for elemento in sublista]
         
         # A variável bloco_lista_erro_amplitude recebe o valor de retorno da função metodo_desconvolucao_P_igual_N.
-        bloco_lista_erro_amplitude = metodo_desconvolucao_P_igual_N(bloco_teste_pulsos_sinais, bloco_teste_amplitude_referencia, n_janelamento_ideal)
+        bloco_lista_erro_amplitude = metodo_desconvolucao_P_igual_N(n_janelamento_ideal, bloco_teste_pulsos_sinais, bloco_teste_amplitude_referencia)
         
         # Caso a variável opcao_avaliacao_desempenho seja igual a 1.
         if opcao_avaliacao_desempenho == 1:
@@ -386,9 +386,9 @@ def principal_desempenho_desconvolucao():
     
         vetor_amostras_pulsos, vetor_amostras_amplitude_referencia, _ = amostras_pulsos_e_referencia(Matriz_Dados_OC_Sem_Pedestal)
         
-        Matriz_Dados_Pulsos, vetor_amplitude_referencia = amostras_janelamento(vetor_amostras_pulsos, vetor_amostras_amplitude_referencia, n_janelamento_ideal)
+        Matriz_Dados_Pulsos_Janelado, vetor_amplitude_referencia_janelado = amostras_janelamento(vetor_amostras_pulsos, vetor_amostras_amplitude_referencia, n_janelamento_ideal)
     
-        K_fold_desempenho_desconvolucao(n_ocupacao, n_janelamento_ideal, opcao_avaliacao_desempenho, Matriz_Dados_Pulsos, vetor_amplitude_referencia)
+        K_fold_desempenho_desconvolucao(n_ocupacao, n_janelamento_ideal, opcao_avaliacao_desempenho, Matriz_Dados_Pulsos_Janelado, vetor_amplitude_referencia_janelado)
     
     # Definição do tempo final.
     tempo_final = time.time()
